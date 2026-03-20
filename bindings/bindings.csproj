@@ -23,9 +23,14 @@
     <None Include="runtimes\**\*" Pack="true" PackagePath="runtimes" />
   </ItemGroup>
   
-  <ItemGroup>
-      <Content Include="..\target\release\babble_model.dll" Link="babble_model.dll">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Content>
-    </ItemGroup>
+  <ItemGroup Condition="'$(OS)' == 'Windows_NT'">
+    <Content Include="..\target\release\babble_model.dll" Link="babble_model.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup Condition="'$(RuntimeIdentifier)' == 'linux-x64' Or '$(RuntimeIdentifier)' == 'linux-arm64'">
+    <Content Include="../target/release/babble_model.so" Link="babble_model.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
