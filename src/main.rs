@@ -28,12 +28,10 @@ use log::{error, info};
 use time::{UtcDateTime, macros::format_description};
 
 fn create_artifact_dir(model_name: &str) {
-    let path = std::path::Path::new(model_name).parent();
+    let path = std::path::Path::new(model_name);
 
-    if let Some(parent) = path {
-        std::fs::remove_dir_all(parent).ok();
-        std::fs::create_dir_all(parent).ok();
-    }
+    std::fs::remove_dir_all(path).ok();
+    std::fs::create_dir_all(path).ok();
 }
 
 pub fn train<B: AutodiffBackend>(
