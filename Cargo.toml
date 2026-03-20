@@ -8,7 +8,7 @@ anyhow = "1.0.102"
 burn = { version = "=0.21.0-pre.1", features = [
     "tui",
     "train",
-    "cuda",
+    "wgpu",
     "fusion",
 ] }
 burn-import = "=0.21.0-pre.1"

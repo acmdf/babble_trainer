@@ -113,7 +113,7 @@ fn main() {
     //     .filter_level(log::LevelFilter::Info)
     //     .init();
 
-    type Backend = burn::backend::Cuda;
+    type Backend = burn::backend::Wgpu;
     type AutodiffBackend = Autodiff<Backend>;
     let device = Default::default();
     let mut reader = FileReader::new();

@@ -50,7 +50,7 @@ pub struct ModelOutput {
     pub eyewide_r: f32,
 }
 
-type B = burn::backend::Cuda;
+type B = burn::backend::Wgpu;
 
 #[derive(Debug)]
 struct InferenceState {
@@ -487,8 +487,7 @@ pub extern "C" fn trainModel(
     let usercal_path_cstr = unsafe { CStr::from_ptr(usercal_path) };
     let output_path_cstr = unsafe { CStr::from_ptr(output_path) };
 
-    type Backend = burn::backend::Cuda;
-    type AutodiffBackend = Autodiff<Backend>;
+    type AutodiffBackend = Autodiff<B>;
     let device = Default::default();
     let mut reader = FileReader::new();
 
