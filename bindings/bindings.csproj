@@ -29,7 +29,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup Condition="'$(RuntimeIdentifier)' == 'linux-x64' Or '$(RuntimeIdentifier)' == 'linux-arm64'">
-    <Content Include="../target/release/babble_model.so" Link="babble_model.so">
+    <Content Include="../target/release/libbabble_model.so" Link="libbabble_model.so">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
