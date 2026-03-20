@@ -5,7 +5,7 @@ use std::sync::{
 
 use babble_model::{
     ImageData, ImageLabel,
-    ffi::{ModelOutput, load_model, run_inference},
+    ffi::{ModelOutput, infer::{load_model, run_inference}},
     loader::FileReader,
 };
 use eframe::egui::{self, Vec2};

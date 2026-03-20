@@ -49,6 +49,15 @@ namespace babble_model.Net.Sys
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public unsafe partial struct TrainingDataCallback
+    {
+        public CallbackType callback_type;
+        public int low;
+        public int high;
+        public float loss;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public unsafe partial struct ModelOutputResult
     {
         [MarshalAs(UnmanagedType.U1)] public bool is_error;
@@ -62,15 +71,6 @@ namespace babble_model.Net.Sys
         public ModelOutput model_output;
         [FieldOffset(0)]
         public byte* error_message;
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public unsafe partial struct TrainingDataCallback
-    {
-        public CallbackType callback_type;
-        public int low;
-        public int high;
-        public float loss;
     }
 
 
