@@ -93,7 +93,7 @@ impl<B: Backend> Batcher<B, WindowedFrame, EyeDataBatch<B>> for EyeDataBatcher {
                 } else {
                     0.0
                 },
-                if angry > 0.5 { 1.0 } else { 0.0 },
+                if angry > 0.5 { 1.0 } else { ((1.0 - norm_pitch)-0.5).clamp(0.0, 1.0) },
                 if widen > 0.5 { 1.0 } else { 0.0 },
             ];
         }
