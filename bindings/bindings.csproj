@@ -28,7 +28,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup Condition="'$(RuntimeIdentifier)' == 'linux-x64' Or '$(RuntimeIdentifier)' == 'linux-arm64'">
+  <ItemGroup Condition="'$(OS)' != 'Windows_NT'">
     <Content Include="../target/release/libbabble_model.so" Link="libbabble_model.so">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
